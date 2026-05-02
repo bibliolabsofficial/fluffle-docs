@@ -1,0 +1,103 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from "../../components/Code.astro";
+import Footer from "../../components/Footer";
+import NavButton from '../../components/NavButton.astro';
+---
+
+<Layout title="StyleSheet API | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="StyleSheet API">
+         <p>
+          The <strong>StyleSheet API</strong> works similarly to the <a
+            href="https://reactnative.dev/docs/stylesheet"
+            target="_blank" rel="noopener noreferrer">React Native StyleSheet API</a
+          >, but with added support for advanced features like
+          <strong>nested styles</strong>, <strong>mixins</strong>, and more <strong>powerful shorthand properties</strong>.
+        </p>
+
+        <p>
+          This allows you to structure styles in a more intuitive and
+          maintainable way, especially for complex components.
+        </p>
+
+        <h3>Creating a StyleSheet object</h3>
+        <p>
+          Import <code>StyleSheet</code> from <code>@bibliolabs/react-native-fluffle</code> and use its own <code>create</code> method to define your styles.
+        </p>
+
+        <Code code={
+`import { StyleSheet } from '@bibliolabs/react-native-fluffle';
+
+const styles = StyleSheet.create({
+  modal: {
+    wrapper: {
+      display: 'flex',
+      padding: 16,
+    },
+
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+    },
+
+    button: {
+      active: {
+        backgroundColor: 'blue',
+      },
+
+      inactive: {
+        backgroundColor: 'gray',
+      },
+    },
+  },
+});`}
+        />
+
+        <h3>Using styles</h3>
+        <p>
+          Apply styles using the returned object. Each key corresponds to a style definition.
+        </p>
+
+        <Code
+          lang="tsx"
+          code={
+`<View style={styles.modal.wrapper}>
+  <Text style={styles.modal.title}>Hello</Text>
+
+  <Button
+    onPress={handlePress}
+    title="Submit"
+    style={active ? styles.modal.active : styles.modal.inactive}
+  />
+</View>
+`}
+        />
+
+        <h3>Best practices</h3>
+        <ul>
+          <li>Keep styles small and reusable.</li>
+          <li>Use descriptive names for style keys.</li>
+          <li>Avoid empty style objects.</li>
+          <li>Group related styles together.</li>
+        </ul>
+
+        <NavButton
+          prev={{ title: 'Getting started | Installation setup', href: '/' }}
+          next={{ title: 'Features | Nesting', href: '/features/nesting' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

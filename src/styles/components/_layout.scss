@@ -1,0 +1,17 @@
+@use '../global/breakpoints' as breakpoints;
+
+.main__wrapper {
+  display: flex;
+  padding-top: 5.3125rem;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+@include breakpoints.respond-to(sm) {
+  .main__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5.3125rem;
+    gap: 1.25rem;
+  }
+}

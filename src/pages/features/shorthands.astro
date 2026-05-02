@@ -1,0 +1,132 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="Shorhand Properties | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+<Content title="Shorthand properties">
+  <p>
+    Fluffle extends React Native’s styling by providing
+    <strong>advanced shorthand support</strong> for properties like
+    <code>margin</code> and <code>padding</code>.
+  </p>
+
+  <p>
+    Unlike standard React Native, Fluffle supports multiple shorthand formats,
+    including <strong>arrays</strong> and <strong>object-based control</strong>.
+  </p>
+
+  <h3>Single value</h3>
+  <p>
+    Passing a single value applies it to all sides.
+  </p>
+
+  <Code
+    lang="ts"
+    code={
+`const styles = StyleSheet.create({
+  box: {
+    padding: 16,
+  },
+});
+`}
+  />
+
+  <h3>Array syntax</h3>
+  <p>
+    You can pass an array to apply values similar to <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Shorthand_properties'>CSS shorthand behavior</a>.
+  </p>
+
+  <Code
+    lang="ts"
+    code={
+`const styles = StyleSheet.create({
+  box: {
+    padding: [10],          // all sides
+    margin: [10, 20],       // vertical | horizontal
+    padding: [10, 20, 30],  // top | horizontal | bottom
+    margin: [10, 20, 30, 40], // top | right | bottom | left
+  },
+});
+`}
+  />
+
+  <h3>Object syntax (fine-grained control)</h3>
+  <p>
+    You can also use an object to target specific sides explicitly.
+  </p>
+
+  <Code
+    lang="ts"
+    code={
+`const styles = StyleSheet.create({
+  box: {
+    padding: {
+      top: 10,
+      left: 20,
+    },
+  },
+});
+`}
+  />
+
+  <p>
+    Only the specified sides will be applied—unlike the array syntax,
+    which follows positional rules.
+  </p>
+
+  <h3>Combining approaches</h3>
+  <p>
+    Object syntax is useful when you need partial overrides without redefining all sides.
+  </p>
+
+  <Code
+    lang="ts"
+    code={
+`const styles = StyleSheet.create({
+  box: {
+    padding: [10, 20],
+    padding: {
+      bottom: 30, // overrides only bottom
+    },
+  },
+});
+`}
+  />
+
+  <h3>Why this matters</h3>
+  <ul>
+    <li>Write less repetitive code.</li>
+    <li>Use familiar CSS shorthand behavior.</li>
+    <li>Gain precise control when needed.</li>
+  </ul>
+
+  <h3>Best practices</h3>
+  <ul>
+    <li>Use arrays for quick layout definitions.</li>
+    <li>Use objects for explicit overrides.</li>
+    <li>Avoid mixing formats excessively in the same style.</li>
+  </ul>
+
+  <NavButton
+    prev={{ title: 'Features: Nesting', href: '/features/nesting' }}
+    next={{ title: 'Features: Mixins', href: '/features/mixins' }}
+  />
+</Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,117 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="Nesting | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Nesting">
+        <p>
+          Fluffle allows you to <strong>nest styles</strong>, making your styles more
+          structured and easier to organize. This is especially useful for grouping related styles under a single
+          component or feature.
+        </p>
+
+        <h3>Basic nesting</h3>
+        <p>
+          You can define nested style objects inside a parent style.
+        </p>
+
+        <Code
+          lang="ts"
+          code={
+`const styles = StyleSheet.create({
+  card: {
+    container: {
+      padding: 16,
+      backgroundColor: 'white',
+    },
+
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+    },
+  },
+});`}
+        />
+
+        <h3>Using nested styles</h3>
+        <p>
+          Access nested styles using dot notation.
+        </p>
+
+        <Code
+          lang="tsx"
+          code={
+`<View style={styles.card.container}>
+  <Text style={styles.card.title}>Hello</Text>
+</View>`}
+        />
+
+        <h3>Deeper nesting</h3>
+        <p>
+          Nesting can be used multiple levels deep to organize complex components.
+        </p>
+
+        <Code
+          lang="ts"
+          code={
+`const styles = StyleSheet.create({
+  modal: {
+    wrapper: {
+      padding: 16,
+    },
+
+    header: {
+      title: {
+        fontSize: 18,
+      },
+    },
+
+    button: {
+      primary: {
+        backgroundColor: 'blue',
+      },
+
+      secondary: {
+        backgroundColor: 'gray',
+      },
+    },
+  },
+});`}
+        />
+
+        <h3>Best practices</h3>
+        <ul>
+          <li>Keep nesting shallow and meaningful.</li>
+          <li>Group styles by component or feature.</li>
+          <li>Avoid excessive nesting levels.</li>
+        </ul>
+
+        <h3>When to use nesting</h3>
+        <p>
+          Nesting is useful for organizing styles, but it shouldn’t replace clear and
+          maintainable structure. Use it where it improves readability—not just for the sake of it.
+        </p>
+
+        <NavButton
+          prev={{ title: 'Features: StyleSheet API', href: '/features/stylesheet-api' }}
+          next={{ title: 'Features: Shorthand properties', href: '/features/shorthands' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

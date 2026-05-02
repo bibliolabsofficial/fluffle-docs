@@ -9,9 +9,26 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint ."
   },
   "dependencies": {
-    "astro": "^6.1.9"
+    "@astrojs/react": "^5.0.4",
+    "astro": "^6.1.9",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "shiki": "^4.0.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.7.0",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3",
+    "sass": "^1.99.0",
+    "typescript-eslint": "^8.59.0"
   }
 }

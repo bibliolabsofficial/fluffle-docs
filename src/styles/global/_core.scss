@@ -1,0 +1,57 @@
+@use '../utils/' as utils;
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff-secondary), 'Times New Roman', serif;
+  color: var(--clr-neutral-0);
+  background-color: var(--clr-neutral-970);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  font-family: var(--ff-secondary);
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--clr-base-300);
+}
+
+.wrapper {
+  width: min(100% - utils.pxToRem(75), utils.pxToRem(1400));
+  margin-inline: auto;
+}

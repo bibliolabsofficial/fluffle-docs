@@ -1,0 +1,24 @@
+@use 'sass:list';
+@use 'sass:map';
+
+$breakpoints: (
+  xs: 20rem, // 320px
+  sm: 36rem, // 576px
+  md: 48rem, // 768px
+  lg: 64rem, // 1024px
+  xl: 90rem, // 1440px
+);
+
+@function breakpoint($name) {
+  @if map.has-key($breakpoints, $name) {
+    @return map.get($breakpoints, $name);
+  }
+
+  @error "Unknown breakpoint `#{$name}`. Valid keys are: #{list.join(map.keys($breakpoints), ', ')}";
+}
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: #{breakpoint($breakpoint)}) {
+    @content;
+  }
+}

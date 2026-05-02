@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="Contributing: Pull Requests | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Pull Requests">
+        <p>
+          Pull requests are welcome! If you’d like to contribute to Fluffle,
+          please follow these guidelines to make the review process smooth and efficient.
+        </p>
+
+        <h3>Before submitting a pull request</h3>
+        <ul>
+          <li>Make sure your change aligns with the project’s goals.</li>
+          <li>Check if a similar pull request already exists.</li>
+          <li>Open an issue first if the change is large or introduces new behavior.</li>
+        </ul>
+
+        <h3>Creating a pull request</h3>
+        <ul>
+          <li>Fork the repository and create a new branch.</li>
+          <li>Use a clear and descriptive branch name.</li>
+          <li>Keep your changes focused and minimal.</li>
+        </ul>
+
+        <h3>Code guidelines</h3>
+        <ul>
+          <li>Follow the existing code style and structure.</li>
+          <li>Write clean and readable code.</li>
+          <li>Update or add documentation if needed.</li>
+        </ul>
+
+        <h3>Testing</h3>
+        <ul>
+          <li>Ensure your changes don’t break existing functionality.</li>
+          <li>Test your changes locally before submitting.</li>
+        </ul>
+
+        <h3>Pull request description</h3>
+        <p>
+          Provide a clear description of what your pull request does and why it’s needed.
+        </p>
+
+        <ul>
+          <li>Explain the problem you’re solving.</li>
+          <li>Describe your solution.</li>
+          <li>Include screenshots or examples if relevant.</li>
+        </ul>
+
+        <h3>Review process</h3>
+        <p>
+          Once submitted, your pull request will be reviewed. Feedback may be provided,
+          and changes may be requested before merging.
+        </p>
+
+        <NavButton
+          prev={{ title: 'Contributing | Issues and Bugs', href: '/contributing/issues' }}
+          next={{ title: 'Contributing | Support the project', href: '/contributing/donate' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

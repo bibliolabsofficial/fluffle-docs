@@ -1,0 +1,26 @@
+---
+import { codeToHtml } from 'shiki';
+import CopyButton from './CopyToClipboard';
+
+interface Props {
+  code: string;
+  lang?: string;
+  theme?: string;
+}
+
+const { code, lang = "ts", theme = 'dracula' }: Props = Astro.props;
+
+const html = await codeToHtml(code, {
+  lang,
+  theme,
+});
+---
+
+<div class="code">
+  <div class="code__header">
+    <span>{lang}</span>
+    <CopyButton client:load code={code} />
+  </div>
+
+  <div class="code__body" set:html={html} />
+</div>
