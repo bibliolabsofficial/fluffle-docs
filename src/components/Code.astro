@@ -19,7 +19,7 @@ const html = await codeToHtml(code, {
 <div class="code">
   <div class="code__header">
     <span>{lang}</span>
-    <CopyButton client:load code={code} />
+    <CopyButton client:idle code={code} />
   </div>
 
   <div class="code__body" set:html={html} />
