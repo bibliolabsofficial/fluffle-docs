@@ -13,6 +13,7 @@ const { code, lang = "ts", theme = 'dracula' }: Props = Astro.props;
 const html = await codeToHtml(code, {
   lang,
   theme,
+  transformers: [{ pre(node) { node.properties.style = "" } }],
 });
 ---
 
