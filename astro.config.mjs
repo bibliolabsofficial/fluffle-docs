@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  site: 'https://fluffle.github.io',
+  site: 'https://react-native-fluffle.github.io',
   trailingSlash: 'never',
   markdown: {
     shikiConfig: {
