@@ -13,8 +13,15 @@ export const sidebar = [
     items: [
       { title: 'StyleSheet API', href: '/features/stylesheet-api' },
       { title: 'Nesting', href: '/features/nesting' },
-      { title: 'Shorthand properties', href: '/features/shorthands' },
-      { title: 'Mixins', href: '/features/mixins' },
+      { title: 'rem units', href: '/features/rem' },
+    ],
+  },
+  {
+    title: 'Roadmap',
+    href: '/roadmap',
+    items: [
+      { title: 'Shorthand properties', href: '/roadmap/shorthands' },
+      { title: 'Mixins', href: '/roadmap/mixins' },
     ],
   },
   {

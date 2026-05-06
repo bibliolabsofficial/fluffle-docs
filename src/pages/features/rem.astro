@@ -1,0 +1,81 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="rem units | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="rem units">
+        <p>
+          Fluffle supports <strong>rem units</strong> for scalable and consistent sizing
+          across devices.
+        </p>
+
+        <h3>Basic usage</h3>
+        <p>
+          Use <code>rem</code> values as strings in supported style properties.
+        </p>
+
+        <Code
+          lang="ts"
+          code={`
+const styles = StyleSheet.create({
+  text: {
+    fontSize: "1rem",
+  },
+  container: {
+    padding: "2rem",
+  },
+});
+`}
+        />
+
+        <h3>How it works</h3>
+        <p>
+          <code>1rem</code> is based on a root font size, adjusted by the device's font scale.
+        </p>
+
+        <ul>
+          <li>iOS default: <strong>17</strong></li>
+          <li>Android default: <strong>14</strong></li>
+        </ul>
+
+        <h3>Configuration</h3>
+        <p>You can override the root font size by adding this to your app's initialization file (e.g. <code>App.tsx</code>):</p>
+
+        <Code
+          lang="ts"
+          code={`
+import { StyleSheet } from "@bibliolabs/react-native-fluffle";
+
+StyleSheet.configRem.setRootFontSize(16);
+`}
+        />
+
+        <h3>Notes</h3>
+        <ul>
+          <li>Only supported style properties accept <code>rem</code></li>
+          <li>Values are resolved to numbers at runtime</li>
+        </ul>
+
+        <NavButton
+          prev={{ title: 'Features | Nesting', href: '/features/nesting' }}
+          next={{ title: 'Roadmap | Shorthands', href: '/roadmap/shorthands' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

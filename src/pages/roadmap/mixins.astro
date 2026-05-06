@@ -1,0 +1,149 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="Mixins (Upcoming) | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Mixins (Upcoming)">
+        <p>
+          We plan to support reusable style fragments through <strong>mixins</strong>,
+          inspired by Sass. This feature is currently <strong>in development</strong>.
+        </p>
+
+        <p>
+          Mixins aim to let you define reusable groups of styles and include them
+          inside other styles using a simple and expressive API.
+        </p>
+
+        <h3>Planned syntax</h3>
+
+        <Code
+          lang="ts"
+          code={`
+const center = {
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const styles = StyleSheet.create({
+  container: {
+    $include: center,
+  },
+});
+`}
+        />
+
+        <h3>Multiple mixins</h3>
+
+        <Code
+          lang="ts"
+          code={`
+const styles = StyleSheet.create({
+  container: {
+    $include: [center, fullSize],
+  },
+});
+`}
+        />
+
+        <h3>Override behavior</h3>
+        <p>
+          Styles defined after <code>$include</code> will override values coming
+          from mixins — following a predictable merge order.
+        </p>
+
+        <Code
+          lang="ts"
+          code={`
+const styles = StyleSheet.create({
+  container: {
+    $include: center,
+    justifyContent: 'flex-start', // overrides mixin
+  },
+});
+`}
+        />
+
+        <h3>Why not just use the spread operator?</h3>
+        <p>
+          You could achieve something similar using JavaScript’s spread syntax:
+        </p>
+
+        <Code
+          lang="ts"
+          code={
+`const styles = StyleSheet.create({
+  container: {
+    ...center,
+    ...fullSize,
+  },
+});
+`}
+        />
+
+        <p>
+          However, mixins provide several advantages over simple object spreading:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Better intent:</strong> <code>$include</code> clearly communicates that
+            styles are being reused, rather than merged manually.
+          </li>
+          <li>
+            <strong>Tooling support:</strong> Fluffle can process mixins internally,
+            enabling future features like validation, composition rules, or dev warnings.
+          </li>
+          <li>
+            <strong>Predictable merging:</strong> Mixins follow a consistent resolution
+            order, making overrides easier to reason about.
+          </li>
+          <li>
+            <strong>Extensibility:</strong> The mixin system can evolve (e.g. conditional
+            styles, theming, variants) without changing userland code.
+          </li>
+           <li>
+            <strong>True composition:</strong> Mixins can include other
+            mixins recursively, allowing you to build reusable style layers that scale
+            cleanly across your app.
+          </li>
+        </ul>
+
+        <p>
+          In short, while spreading works, mixins provide a more structured and scalable
+          approach as your styling system grows.
+        </p>
+
+        <h3>Goals</h3>
+        <ul>
+          <li>Encourage reuse of style logic</li>
+          <li>Reduce duplication across components</li>
+          <li>Keep styles modular and maintainable</li>
+        </ul>
+
+        <p>
+          The API may evolve before release. Feedback and ideas are welcome.
+        </p>
+
+        <NavButton
+          prev={{ title: 'Upcoming features | Shorthands', href: '/upcoming/shorthands' }}
+          next={{ title: 'Contributing | Issues and Bugs', href: '/contributing/issues' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

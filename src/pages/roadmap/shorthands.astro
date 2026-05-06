@@ -1,0 +1,96 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="Shorhand Properties (Upcoming) | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Shorthand properties (Upcoming)">
+        <p>
+          We plan to introduce <strong>object-based shorthand properties</strong> to make layout styling more expressive and less repetitive.
+        </p>
+
+        <h3>Object syntax</h3>
+        <p>
+          You will be able to define spacing using descriptive keys:
+        </p>
+
+        <Code
+          lang="ts"
+          code={`
+const styles = StyleSheet.create({
+  box: {
+    padding: {
+      top: 10,
+      bottom: 20,
+    },
+    margin: {
+      block: "1rem",
+      inline: "2rem",
+    },
+  },
+});
+`}
+        />
+
+                <h3>How it expands</h3>
+        <p>
+          These shorthand objects will be expanded into standard React Native properties:
+        </p>
+
+        <Code
+          lang="ts"
+          code={`
+{
+  paddingTop: 10,
+  paddingBottom: 20,
+  marginTop: "1rem",
+  marginBottom: "1rem",
+  marginLeft: "2rem",
+  marginRight: "2rem",
+}
+`}
+        />
+
+        <h3>Supported concepts</h3>
+        <ul>
+          <li><strong>Directional:</strong> <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code></li>
+          <li><strong>Logical:</strong> <code>block</code>, <code>inline</code></li>
+          <li><strong>Grouped:</strong> <code>horizontal</code>, <code>vertical</code></li>
+        </ul>
+
+        <h3>Why object syntax?</h3>
+        <ul>
+          <li>Improved type safety</li>
+          <li>Clear and self-documenting styles</li>
+          <li>Better compatibility with <code>rem</code> processing</li>
+          <li>Avoids ambiguity of positional arrays</li>
+        </ul>
+
+        <h3>Status</h3>
+        <p>
+          This feature is currently <strong>not yet implemented</strong> and is part of
+          Fluffle’s upcoming roadmap.
+        </p>
+
+        <NavButton
+          prev={{ title: 'Features | rem units', href: '/features/rem' }}
+          next={{ title: 'Roadmap | Mixins', href: '/roadmap/mixins' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>
