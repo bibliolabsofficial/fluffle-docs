@@ -32,31 +32,63 @@ import NavButton from '../../components/NavButton.astro';
 
         <h3>Creating a StyleSheet object</h3>
         <p>
-          Import <code>StyleSheet</code> from <code>@bibliolabs/react-native-fluffle</code> and use its own <code>create</code> method to define your styles.
+          Import <code>StyleSheet</code> from <code>@bibliolab/react-native-fluffle</code> and use its own <code>create</code> method to define your styles.
         </p>
 
         <Code code={
-`import { StyleSheet } from '@bibliolabs/react-native-fluffle';
+`import { StyleSheet } from '@bibliolab/react-native-fluffle';
 
-const styles = StyleSheet.create({
-  modal: {
-    wrapper: {
-      display: 'flex',
-      padding: 16,
-    },
+const styles = create({
+  card: {
+    padding: '1rem',
+    backgroundColor: '#fff',
+    borderRadius: '0.75rem',
 
-    title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: '0.75rem',
 
-    button: {
-      active: {
-        backgroundColor: 'blue',
+      avatar: {
+        width: '3rem',
+        height: '3rem',
+        borderRadius: '1.5rem',
+        marginRight: '0.75rem',
       },
 
-      inactive: {
-        backgroundColor: 'gray',
+      name: {
+        fontSize: '1.125rem',
+        fontWeight: '700',
+        color: '#111',
+      },
+
+      username: {
+        fontSize: '0.875rem',
+        color: '#666',
+      },
+    },
+
+    actions: {
+      flexDirection: 'row',
+      marginTop: '1rem',
+
+      button: {
+        paddingVertical: '0.625rem',
+        paddingHorizontal: '0.875rem',
+        borderRadius: '0.5rem',
+        marginRight: '0.5rem',
+
+        text: { fontWeight: '600' },
+
+        primary: {
+          backgroundColor: '#2563eb',
+          text: { color: '#fff' },
+        },
+
+        secondary: {
+          backgroundColor: '#e5e7eb',
+          text: { color: '#111' },
+        },
       },
     },
   },
