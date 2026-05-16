@@ -103,16 +103,59 @@ const styles = create({
         <Code
           lang="tsx"
           code={
-`<View style={styles.modal.wrapper}>
-  <Text style={styles.modal.title}>Hello</Text>
+`<View style={styles.card}>
+  <View style={styles.card.header}>
+    <Image
+      source={{ uri: user.avatar }}
+      style={styles.card.header.avatar}
+    />
 
-  <Button
-    onPress={handlePress}
-    title="Submit"
-    style={active ? styles.modal.active : styles.modal.inactive}
-  />
-</View>
-`}
+    <View>
+      <Text style={styles.card.header.info.name}>
+        {user.name}
+      </Text>
+
+      <Text style={styles.card.header.info.username}>
+        @{user.username}
+      </Text>
+    </View>
+  </View>
+
+  <View style={styles.card.actions}>
+    <Pressable
+      style={[
+        styles.card.actions.button,
+        styles.card.actions.button.primary,
+      ]}
+    >
+      <Text
+        style={[
+          styles.card.actions.button.text,
+          styles.card.actions.button.primary.text,
+        ]}
+      >
+        Follow
+      </Text>
+    </Pressable>
+
+    <Pressable
+      style={[
+        styles.card.actions.button,
+        styles.card.actions.button.secondary,
+      ]}
+    >
+      <Text
+        style={[
+          styles.card.actions.button.text,
+          styles.card.actions.button.secondary.text,
+        ]}
+      >
+        Message
+      </Text>
+    </Pressable>
+  </View>
+</View>`
+  }
         />
 
         <h3>Best practices</h3>
