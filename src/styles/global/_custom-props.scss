@@ -40,6 +40,12 @@
   // Border styles
   --border-base-style: solid;
 
+  // Scrollbars
+  --scrollbar-track: rgba(255, 255, 255, 0.04);
+  --scrollbar-thumb: var(--clr-neutral-700);
+  --scrollbar-thumb-hover: var(--clr-neutral-600);
+  --scrollbar-width: 8px;
+
   // Transition times
   --transition-time-slow: 2s;
   --transition-time-regular: 1s;
