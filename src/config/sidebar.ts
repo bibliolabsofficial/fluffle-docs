@@ -12,6 +12,7 @@ export const sidebar = [
     href: '/features/stylesheet-api',
     items: [
       { title: 'StyleSheet API', href: '/features/stylesheet-api' },
+      { title: 'Typing & Intellisense', href: '/features/typing-intellisense' },
       { title: 'Nesting', href: '/features/nesting' },
       { title: 'rem units', href: '/features/rem' },
     ],

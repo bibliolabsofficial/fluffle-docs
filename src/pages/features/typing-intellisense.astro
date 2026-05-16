@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from "../../components/Footer";
+---
+
+<Layout title="Typing & Intellisense | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Typing & Intellisense">
+        <p>
+          Fluffle is designed to work smoothly with TypeScript, giving you strong typing and editor autocomplete when building styles.
+        </p>
+
+        <h3>Typed style definitions</h3>
+        <p>
+          Use <code>StyleSheet.create</code> to define styles with full type safety. Style keys and nested objects are inferred automatically.
+        </p>
+
+        <Code
+          lang="ts"
+          code={
+`import { StyleSheet } from '@bibliolab/react-native-fluffle';
+
+const styles = StyleSheet.create({
+  card: {
+    container: {
+      padding: '1rem',
+      backgroundColor: '#fff',
+    },
+
+    title: {
+      fontSize: '1.25rem',
+      fontWeight: '700',
+    },
+  },
+});
+
+styles.card.container;
+styles.card.title;`
+          }
+        />
+
+        <h3>Autocomplete & validation</h3>
+        <p>
+          Fluffle’s type definitions help your editor suggest supported style properties and catch invalid values before runtime.
+        </p>
+
+        <ul>
+          <li>Property names are autocompleted for React Native styles</li>
+          <li><code>rem</code> strings are accepted where supported</li>
+          <li>Nested style access is strongly typed</li>
+          <li>Invalid properties or value types raise compile-time warnings</li>
+        </ul>
+
+        <h3>Better developer experience</h3>
+        <p>
+          With TypeScript support, you can build reusable styles with confidence, while your editor helps you discover style names, nested branches, and supported values.
+        </p>
+
+        <NavButton
+          prev={{ title: 'Features | StyleSheet API', href: '/features/stylesheet-api' }}
+          next={{ title: 'Features | Nesting', href: '/features/nesting' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>
